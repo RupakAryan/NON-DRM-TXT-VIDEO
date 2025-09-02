@@ -1,5 +1,5 @@
 # Use a more recent and supported base image
-FROM python:3.9.2-slim-bullseye
+FROM python:3.9-slim-bullseye
 
 # Install required packages
 RUN apt-get update && apt-get install -y wget \
@@ -13,4 +13,5 @@ RUN pip3 install --no-cache-dir --upgrade pip \
     && pip3 install --no-cache-dir --upgrade -r requirements.txt \
     && python3 -m pip install -U yt-dlp
 CMD gunicorn app:app & python3 main.py
+
 
